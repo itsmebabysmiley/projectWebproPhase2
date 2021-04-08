@@ -1,0 +1,4 @@
+npm init --yes
+npm i --save bcrypt body-parser cors dotenv express jsonwebtoken mysql2 nodemon
+
+
