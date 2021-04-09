@@ -227,7 +227,7 @@ router.get("/logout", (req, res) => {
   var type = (req.params.type === "none")? "":req.params.type;
   console.log(name,sortByPrice,type);
   if(sortByPrice !== "") sortByPrice = `ORDER BY price ${sortByPrice}`;
-  if(type !== "") type =  `and type LIKE '%${type}%'`; 
+  if(type !== "") type =  `and type IN (${type})`; 
   var sql = `SELECT * FROM shop_db.product WHERE pName LIKE '%${name}%' ${type} ${sortByPrice}`; 
   console.log(sql);
   connection.query(sql, (error, results, fields) => {
